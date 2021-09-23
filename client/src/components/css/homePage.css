@@ -1,0 +1,65 @@
+.homepage-link {
+    display: block;
+    margin: auto;
+}
+
+.homepage-link figure {
+    display: block;
+    position: relative;
+    max-width: 100%;
+}
+
+.homepage-link img {
+    display: block;
+    width: 100%;
+    max-height: 40rem;
+}
+
+.homepage-link figcaption {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 2.4rem;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: .8rem .5rem;
+}
+
+.homepage-link:hover, .homepage-link:active {
+    opacity: .8;
+}
+
+.homepage-link:hover figcaption, .homepage-link:active figcaption {
+    font-style: italic;
+}
+
+/*Brands*/
+.brand-link {
+    display: inline-block;
+    margin: 1rem;
+    width: 12rem;
+    height: 4rem;
+}
+
+.brand-link img {
+    width: 100%;
+    height: 100%;
+}
+
+.brand-link:hover, .brand-link:active {
+    opacity: .5;
+}
+
+.disclaimer-section {
+    font-size: 1.4rem;
+}
+
+/********************/
+/*FIRST MEDIA QUERY*/
+/******************/
+@media screen and (min-width: 50rem){
+    .homepage-link {
+        display: inline-block;
+        width: 50%;
+    }
+}

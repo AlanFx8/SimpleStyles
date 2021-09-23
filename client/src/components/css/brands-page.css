@@ -1,0 +1,21 @@
+#brands-page h1 {
+    display: block;
+    text-align: center;
+    margin: auto;
+}
+
+#brands-page .brand-link {
+    display: inline-block;
+    margin: 1rem;
+    width: 12rem;
+    height: 4rem;
+}
+
+#brands-page .brand-link img {
+    width: 100%;
+    height: 100%;
+}
+
+#brands-page .brand-link:hover, .brand-link:active {
+    opacity: .5;
+}

@@ -1,0 +1,152 @@
+/*
+Note: This acts as the primary css file
+*/
+body {
+    scroll-behavior: smooth;
+}
+
+#root {
+    display: grid;
+    grid-template-areas: 
+    "header"
+    "content"
+    "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    height: 100%;
+}
+
+#main-header {
+    grid-area: header;
+}
+
+#main-content {
+    grid-area: content;
+    background-color: #dbdbdb; /*The Main Site BGC*/
+    color: #000000;
+}
+
+/*This acts as a direct child for the main-content section*/
+/*It allows us to easily add a width limit*/
+#main-content-wrapper {
+    padding: 0 5%;
+}
+
+/* #products-result-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+/*Pricing - This is used by both product pages and product listing */
+.price-wrapper {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    padding: .5rem;
+}
+
+.price-wrapper > * {
+    padding: .5rem;
+}
+
+.price-wrapper .original-price {
+    color: #555555;
+    text-decoration-line: line-through;
+    font-weight: normal;
+}
+
+.price-wrapper .discount-price {
+    color: #ffffff;
+    background-color: crimson;
+}
+
+/*Rating - This is used by both product pages and product listing */
+.product-reviews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-rating-background {
+    display: inline-block;
+    width: 75px;
+    height: 15px;
+    background-image: url('../../img/layout/ReviewStarsBackground.png');
+    background-repeat: no-repeat;
+}
+
+.product-rating {
+    display: block;
+    height: 15px;
+    background-image: url('../../img/layout/ReviewStars.png');
+    background-repeat: no-repeat;
+}
+
+.product-review-count {
+    color: #303030;
+    font-size: 1.5rem;
+    padding: .5rem
+}
+
+/*Buttons*/
+.continue-shopping-btn, .cart-checkout-btn {
+    cursor: pointer;
+    display: block;
+    width: 20rem;
+    line-height: 5rem;
+    padding: 0 .5rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+    transition: all .5s;
+}
+
+.continue-shopping-btn {
+    color: #666666;
+    border: solid 1px #666666;
+    background-color: #ffffff;
+}
+
+.continue-shopping-btn:hover, .continue-shopping-btn:active {
+    background-color: #bbbbbb;
+}
+
+.cart-checkout-btn {
+    color: #ffffff;
+    background-color: #177400;
+}
+
+.cart-checkout-btn:hover, .cart-checkout-btn:active {
+    background-color: #084200;
+}
+
+/*THE FOOTER*/
+#main-footer {
+    grid-area: footer;
+}
+
+/********************/
+/*FIRST MEDIA QUERY*/
+/******30rems******/
+/******************/
+@media screen and (min-width: 30rem){
+    #products-result-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/********************/
+/*SECOND MEDIA QUERY*/
+/******50rems******/
+/******************/
+@media screen and (min-width: 50rem){
+    #main-content-wrapper {
+        max-width: 160rem;
+        margin: auto;
+    }
+
+    #products-result-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

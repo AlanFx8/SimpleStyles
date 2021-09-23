@@ -1,0 +1,146 @@
+/*SET CSS VARIABLES*/
+:root {
+    --panel-label-height: 38px; /*Used by the label and panel as they are set to absolute*/
+}
+
+/*STYLE THE MAIN SUBMENU ASPECTS*/
+/*The ul element that holds the sort and filter options*/
+.submenu-options-section {
+    width: 100%;
+    background-color: #ffffff;
+    list-style: none;
+}
+
+.submenu-options-section .options-section-panel {
+    display: inline-block;
+    width: 100%;
+    position: relative;
+}
+
+/*THE SORT-OPTOPNS PANEL SECTIONS*/
+/*Hide the Checkboxes inside the ul - as we only need the labels*/
+.submenu-options-checkbox {
+    display: none;
+}
+
+/*The Subenu-Options labels - these act as a link*/
+.submenu-options-label {
+    display: block;
+    width: 100%;
+    padding: 0 2rem;
+    cursor: pointer;
+    line-height: var(--panel-label-height);
+}
+
+.submenu-options-label::after {
+    content: "\25BC";
+    position: absolute;
+    top: 3px;
+    right: 12px;
+    margin-right: .5rem;
+    transition: all .75s;
+}
+
+.submenu-options-checkbox:checked ~ .submenu-options-label::after {
+    transform: rotateX(180deg);
+}
+
+/*Set the submenu sub-lists to act as dropdown lists*/
+.options-section-panel .options-section-panel-content {
+    position: absolute;
+    top: var(--panel-label-height);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .25s ease-out;    
+    width: 100%;
+    z-index: 1; /*Needs to overlap parent checkboxes on small layouts*/
+}
+
+.submenu-options-checkbox:checked ~ .options-section-panel-content {
+    max-height: 100vh; /*Magic number for trabsition*/
+}
+
+/*STYLE THE SORT-OPTIONS-LIST*/
+.sort-options-list {
+    width: 100%;
+}
+
+.sort-options-list li {
+    width: 100%;
+    height: 48px;
+    background-color: #bbbbbb;
+    padding: .8rem 1rem;
+}
+
+.sort-options-list li:hover, .sort-options-list li:active {
+    background-color: #888888;
+}
+
+.sort-options-list li label {
+    cursor: pointer;
+}
+
+.sort-options-list li input[type="radio"] {
+    margin-right: 1rem;
+}
+
+/*STYLE THE COLOUR-FILTER-LIST*/
+.colour-filter-list {
+    width: 100%;
+}
+
+.colour-filter-list li {
+    display: inline-block;
+    width: 50%;
+    background-color: #bbbbbb;
+    padding: .8rem 1rem;
+}
+
+.colour-filter-list li:hover, .colour-filter-list li:active {
+    background-color: #888888;
+}
+
+.colour-filter-list button {
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.colour-filter-list button .pallet {
+    margin: .5rem;
+    width: 80%;
+    height: 24px;
+}
+
+
+.colour-filter-list .reset-button {
+    width: 100%;
+}
+
+/*STYLE THE PRICE-FILTER-LIST*/
+.price-filter-list {
+    background-color: #bbbbbb;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+.price-filter-list .num-shower {
+    width: 20%;
+    text-align: center;
+}
+
+.price-filter-list .slider-holder {
+    width: 60%;
+    text-align: center;
+}
+
+/********************/
+/*FIRST MEDIA QUERY*/
+/******************/
+@media screen and (min-width: 40rem){
+    .submenu-options-section .options-section-panel {
+        width: 30%;
+    }
+}

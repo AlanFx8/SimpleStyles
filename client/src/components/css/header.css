@@ -1,0 +1,294 @@
+/*SET CSS VARIABLES*/
+:root {
+    --menus-bgc-primary: #b40000;
+    --menus-bgc-secondary: #7a1200;
+}
+
+/*MAIN HEADER SECTION*/
+.header-section-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #000000;
+    padding: 1rem 0;
+}
+
+/*Header Logo*/
+.logo-header {
+    width: 100%;
+    padding: .5rem;
+}
+
+.logo-header img {
+    margin: auto;
+    text-align: center;
+}
+
+/*Search Form*/
+.search-header {
+    width: 60%;
+}
+
+.search-header #search-form {
+    width: 90%;
+    border: solid 1px #555555;;
+}
+
+#search-form input {
+    width: 90%;
+    line-height: 3rem;
+    padding: 1rem;
+}
+
+#search-form button {
+    color: #ffffff;
+    font-size: 2rem;
+    background-color: transparent;
+    width: 10%;
+}
+
+#search-form button:hover, #search-form button:active {
+    cursor: pointer;
+}
+
+/*Header Cart*/
+.header-cart {    
+    width: 20%;
+}
+
+.header-cart > * {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.header-cart svg {
+    font-size: 3rem;
+    padding: 0 .8rem;
+}
+
+.header-cart .cart-header-info {
+    display: none;
+}
+
+/*THE PRIMARY NAVBAR*/
+#primary-navbar {
+    display: none;
+}
+
+/*SMALL NAVBAR*/
+#small-navbar {
+    display: block;
+    width: 100%;
+    padding: .8rem;
+    background-color: var(--menus-bgc-secondary);
+    border-bottom: solid 1px #000000;
+}
+
+#small-navbar-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: auto;
+    height: 3em;
+    width: 9em;
+    background-color: var(--menus-bgc-primary);
+    border: solid 1px #000000;
+    border-radius: .5rem;
+    transition: all .5s;
+}
+
+#small-navbar-button > div {
+    display: block;
+    width: 30px; /*Percentages don't seem to work in Chrome and Opera?*/
+    height: 2px;
+    background-color: #ffffff;
+    transition: all .5s;
+}
+
+#small-navbar-button:hover, #small-navbar-button:active {
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+#small-navbar-button:hover > div, #small-navbar-button:active > div {
+    width: 34px;
+    height: 4px;
+    background-color: #000000;
+}
+
+/*SMALL-NAVMENU*/
+#small-navmenu-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, .5);
+    z-index: 2; /*So it isn't hidden by image links and by submenu panels*/
+}
+
+#small-navmenu {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 160px;
+    height: 100%;
+    background-color: var(--menus-bgc-secondary);
+    border-right: solid 1px #000000;
+    padding: .5em;
+}
+
+/*The close button*/
+#small-navmenu > button {
+    color: #ffffff;
+    width: 100%;
+    font-size: 2em;
+    font-weight: bold;
+    background-color: var(--menus-bgc-primary);
+    border: solid 1px #000000;
+    border-radius: .5rem;
+    transition: all .5s;
+    margin-top: 1rem;
+}
+
+#small-navmenu > button:hover, #small-navmenu > button:active {
+    color: #000000;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+/*Drop-down lists*/
+.small-navmenu-panel {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background-color: var(--menus-bgc-primary);
+    color: #ffffff;
+    border: solid 1px #000000;
+    font-weight: bold;
+    font-size: 1.6rem;
+    line-height: 2.5em;
+}
+
+.small-navmenu-panel:hover, .small-navmenu-panel:active {
+    color: #000000;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+.small-navmenu-ul { /*We hide these until the small-navmenu-panel button is active*/
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .5s ease-out;
+}
+
+.small-navmenu-panel.active + .small-navmenu-ul {
+    max-height: 500px; /*Magic number for transition*/
+}
+
+.small-navmenu-ul li a {
+    display: block;
+    text-align: center;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bold;
+    line-height: 1.8em;
+}
+
+.small-navmenu-ul li a:hover, .small-navmenu-ul li a:active {
+    background-color: #cccccc;
+    text-decoration: underline;
+}
+
+/********************/
+/*FIRST MEDIA QUERY*/
+/******30rems******/
+/******************/
+@media screen and (min-width: 30rem) {
+    .logo-header {
+        width: 18%; /*Note We may not need this, but better to be safe*/
+    }
+}
+
+/********************/
+/*SECOND MEDIA QUERY*/
+/******50rems******/
+/******************/
+@media screen and (min-width: 50rem) {
+    .logo-header {
+        width: 20%;
+    }
+
+    .search-header {
+        width: 50%;
+    }
+
+    .header-cart .cart-header-info {
+        display: inline-block;
+    }
+
+    /*SMALL NAVBAR*/
+    #small-navbar {
+        display: none;
+    }
+
+    /*THE PRIMARY NAVBAR*/
+    #primary-navbar {
+        position: relative;
+        display: block;
+        width: 100%;
+        background-color: var(--menus-bgc-secondary);
+        border-bottom: solid 1px #000000;
+        z-index: 2; /*So it isn't hidden by image links and by submenu panels*/
+    }
+
+    #primary-navbar-ul li {
+        list-style: none;
+        display: inline-block;
+        width: 10em;
+    }
+
+    #primary-navbar-ul li a {
+        display: block;
+        text-align: center;
+        background-color: var(--menus-bgc-primary);
+        color: #ffffff;
+        font-weight: bold;
+        line-height: 3em;
+    }
+
+    #primary-navbar-ul li a:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    /*Sub-Lists*/
+    #primary-navbar-ul li ul {
+        position: absolute;
+        top: 48px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .5s ease-out;
+    }
+
+    #primary-navbar-ul li ul li {
+        display: block;
+    }
+
+    #primary-navbar-ul li ul li a {
+        background-color: #ffffff;
+        color: #000000;
+    }
+
+    #primary-navbar-ul li ul li a:hover {
+        background-color: #cccccc;
+        text-decoration: underline;
+    }
+
+    #primary-navbar-ul li:hover ul {
+        max-height: 500px; /*Magic number for transition*/
+    }
+}
